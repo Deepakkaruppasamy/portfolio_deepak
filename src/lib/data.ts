@@ -51,14 +51,14 @@ export const achievements: Achievement[] = [
         id: 1,
         title: 'First Prize – Data Analytics Hackathon',
         description: 'Anna University, 2025',
-        certificateUrl: '/certificates/data-analytics-first-prize.pdf',
+        // certificateUrl: '/certificates/data-analytics-first-prize.pdf',
         date: '2025',
     },
     {
         id: 2,
         title: 'Third Prize – MINKSY\'24',
         description: 'AI Association, Kongu Engineering College, 2024',
-        certificateUrl: '/certificates/minksy-third-prize.pdf',
+        // certificateUrl: '/certificates/minksy-third-prize.pdf',
         date: '2024',
     },
 ];
