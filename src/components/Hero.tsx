@@ -85,12 +85,12 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient pb-20 pt-32 md:pt-40">
             <div className="container-custom relative z-10 w-full">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-24">
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="max-w-4xl flex-1"
+                        className="max-w-4xl flex-1 text-center lg:text-left flex flex-col items-center lg:items-start"
                     >
                         {/* Status Reveal */}
                         <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest mb-8">
@@ -109,7 +109,7 @@ export default function Hero() {
 
                         {/* Cinematic Heading Reveal */}
                         <motion.h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95] mb-8">
-                            <div className="overflow-hidden flex flex-wrap gap-x-4">
+                            <div className="overflow-hidden flex flex-wrap justify-center lg:justify-start gap-x-4">
                                 {nameWords.map((word, i) => (
                                     <motion.span
                                         key={i}
@@ -128,7 +128,7 @@ export default function Hero() {
                                     .
                                 </motion.span>
                             </div>
-                            <motion.div variants={itemVariants} className="mt-2 h-1 bg-gradient-to-r from-primary via-indigo-500 to-transparent w-24 rounded-full" />
+                            <motion.div variants={itemVariants} className="mt-2 h-1 bg-gradient-to-r from-primary via-indigo-500 to-transparent w-24 rounded-full mx-auto lg:mx-0" />
                             <motion.span variants={itemVariants} className="block text-4xl md:text-6xl lg:text-7xl text-muted-foreground/30 dark:text-muted-foreground/10 mt-4 leading-tight">
                                 Full Stack & <span className="text-gradient">Analyst</span>
                             </motion.span>
@@ -137,7 +137,7 @@ export default function Hero() {
                         {/* Description Stagger */}
                         <motion.p
                             variants={itemVariants}
-                            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 leading-relaxed font-medium"
+                            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 leading-relaxed font-medium mx-auto lg:mx-0"
                         >
                             Architecting high-performance digital experiences and
                             intelligent data solutions. Bridging the gap between
@@ -148,7 +148,7 @@ export default function Hero() {
                         {/* Magnetic CTA Buttons */}
                         <motion.div
                             variants={itemVariants}
-                            className="flex flex-col sm:flex-row gap-8 items-start sm:items-center mb-16"
+                            className="flex flex-col sm:flex-row gap-8 items-center lg:items-start mb-16"
                         >
                             <Magnetic>
                                 <motion.button

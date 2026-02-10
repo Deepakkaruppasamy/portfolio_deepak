@@ -108,7 +108,7 @@ export default function Achievements() {
                         </div>
 
                         {/* Right Column - Certifications */}
-                        <div className="lg:col-span-6 space-y-12 lg:mt-32">
+                        <div className="lg:col-span-6 space-y-12">
                             <div className="flex items-center gap-4 mb-12">
                                 <div className="p-4 bg-primary/10 rounded-2xl border border-primary/20 shadow-lg shadow-primary/5">
                                     <BadgeCheck className="text-primary" size={32} />

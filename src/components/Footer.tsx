@@ -30,7 +30,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-20">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-20">
                         <div className="space-y-6">
                             <h4 className="text-xs font-black uppercase tracking-widest text-foreground">Sitemap</h4>
                             <ul className="space-y-4">

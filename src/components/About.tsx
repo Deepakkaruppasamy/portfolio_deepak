@@ -8,7 +8,7 @@ export default function About() {
     return (
         <section id="about" className="section-padding relative overflow-hidden bg-background">
             <div className="container-custom">
-                <div className="flex flex-col lg:flex-row gap-20 items-center">
+                <div className="flex flex-col lg:flex-row gap-20 items-start">
                     {/* Text Content - Slides from Left */}
                     <motion.div
                         initial={{ opacity: 0, x: -100, filter: 'blur(20px)' }}

@@ -39,18 +39,18 @@ export default function Projects({ githubRepos = [] }: ProjectsProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="mb-32"
+                    className="mb-32 flex flex-col items-center text-center"
                 >
                     <div className="flex items-center gap-2 mb-6">
                         <Rocket className="text-primary" size={20} />
                         <h3 className="text-primary font-black tracking-[0.4em] uppercase text-xs">Innovation Lab</h3>
                     </div>
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
-                        <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] max-w-2xl">
+                    <div className="flex flex-col items-center gap-10">
+                        <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] max-w-4xl">
                             Building the<br />
                             <span className="text-gradient">Future</span> Web
                         </h2>
-                        <p className="text-muted-foreground text-xl max-w-sm font-medium leading-relaxed italic border-l-2 border-primary/20 pl-6">
+                        <p className="text-muted-foreground text-xl max-w-2xl font-medium leading-relaxed italic border-t-2 md:border-t-0 md:border-l-2 border-primary/20 pt-6 md:pt-0 md:pl-6">
                             "Every line of code is an opportunity to create something extraordinary."
                         </p>
                     </div>
