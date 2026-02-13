@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useSpring, useTransform } from 'framer-motion';
-import { Award, FileCheck, X, ExternalLink, Trophy, BadgeCheck, Sparkles } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { Award, FileCheck, ExternalLink, Trophy, BadgeCheck, Sparkles } from 'lucide-react';
 import { achievements, certifications } from '@/lib/data';
 
 export default function Achievements() {
-    const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const { scrollYProgress } = useScroll({
@@ -35,10 +34,10 @@ export default function Achievements() {
                             <Sparkles className="text-primary animate-pulse" size={20} />
                             <h3 className="text-primary font-black tracking-[0.4em] uppercase text-xs">Path of Growth</h3>
                         </div>
-                        <h2 className="text-6xl md:text-8xl font-black tracking-tight mb-8">
+                        <h2 className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tight mb-6 md:mb-8">
                             Milestones<span className="text-muted-foreground/20"> & </span>Awards
                         </h2>
-                        <p className="text-muted-foreground text-xl max-w-3xl mx-auto font-medium leading-relaxed">
+                        <p className="text-muted-foreground text-base md:text-xl max-w-3xl mx-auto font-medium leading-relaxed">
                             A track record of excellence in technical innovation,
                             academic achievements, and industry-standard certifications.
                         </p>
@@ -70,7 +69,7 @@ export default function Achievements() {
                                         whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                                         viewport={{ once: true, margin: "-100px" }}
                                         transition={{ duration: 0.8, delay: index * 0.1 }}
-                                        className="glass-card group p-8 rounded-[2.5rem] relative overflow-hidden hover:border-amber-500/30 transition-all duration-500"
+                                        className="glass-card group p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden hover:border-amber-500/30 transition-all duration-500"
                                     >
                                         <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/5 blur-3xl rounded-full group-hover:bg-amber-500/10 transition-colors" />
 
@@ -91,15 +90,15 @@ export default function Achievements() {
                                             </p>
 
                                             {item.certificateUrl && (
-                                                <motion.button
+                                                <motion.a
+                                                    href={item.certificateUrl}
                                                     whileHover={{ scale: 1.02, x: 5 }}
                                                     whileTap={{ scale: 0.98 }}
-                                                    onClick={() => setSelectedCertificate(item.certificateUrl!)}
                                                     className="flex items-center gap-3 text-sm font-black uppercase tracking-widest text-foreground group-hover:text-primary transition-colors"
                                                 >
                                                     Verify Credential
                                                     <ExternalLink size={18} className="text-amber-500" />
-                                                </motion.button>
+                                                </motion.a>
                                             )}
                                         </div>
                                     </motion.div>
@@ -118,15 +117,15 @@ export default function Achievements() {
 
                             <div className="grid gap-6">
                                 {certifications.map((cert, index) => (
-                                    <motion.div
+                                    <motion.a
                                         key={cert.id}
+                                        href={cert.certificateUrl}
                                         initial={{ opacity: 0, x: 50, filter: 'blur(10px)' }}
                                         whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                                         viewport={{ once: true, margin: "-100px" }}
                                         transition={{ duration: 0.8, delay: index * 0.1 }}
                                         whileHover={{ scale: 1.02, y: -5 }}
-                                        onClick={() => setSelectedCertificate(cert.certificateUrl)}
-                                        className="glass-card group p-8 rounded-3xl cursor-pointer flex items-center justify-between border-border/40 hover:border-primary/50 transition-all duration-500 shadow-xl shadow-black/5"
+                                        className="glass-card group p-6 md:p-8 rounded-2xl md:rounded-3xl cursor-pointer flex items-center justify-between border-border/40 hover:border-primary/50 transition-all duration-500 shadow-xl shadow-black/5"
                                     >
                                         <div className="flex items-center gap-6">
                                             <div className="p-4 bg-primary/5 rounded-2xl group-hover:bg-primary/10 transition-colors ring-1 ring-primary/10">
@@ -142,13 +141,12 @@ export default function Achievements() {
                                             </div>
                                         </div>
                                         <motion.div
-                                            animate={{ rotate: [0, 90, 0] }}
-                                            transition={{ duration: 4, repeat: Infinity }}
-                                            className="text-muted-foreground/20 group-hover:text-primary transition-colors"
+                                            className="text-muted-foreground/40 group-hover:text-primary transition-colors flex items-center gap-2"
                                         >
-                                            <Sparkles size={24} />
+                                            <span className="text-xs font-black uppercase tracking-widest hidden sm:inline">View</span>
+                                            <FileCheck size={24} />
                                         </motion.div>
-                                    </motion.div>
+                                    </motion.a>
                                 ))}
                             </div>
                         </div>
@@ -156,70 +154,7 @@ export default function Achievements() {
                 </div>
             </section>
 
-            {/* Cinematic Modal */}
-            <AnimatePresence>
-                {selectedCertificate && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setSelectedCertificate(null)}
-                        className="fixed inset-0 bg-background/95 backdrop-blur-3xl z-[100] flex items-center justify-center p-4 md:p-12"
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0, y: 50, rotateX: 10 }}
-                            animate={{ scale: 1, opacity: 1, y: 0, rotateX: 0 }}
-                            exit={{ scale: 0.9, opacity: 0, y: 50 }}
-                            onClick={(e) => e.stopPropagation()}
-                            className="relative w-full max-w-6xl rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(139,92,246,0.2)] bg-card border border-border/50 aspect-[16/10] md:aspect-video flex flex-col"
-                        >
-                            {/* Header with Close and Download */}
-                            <div className="absolute top-4 right-4 md:top-8 md:right-8 flex gap-4 z-20">
-                                <motion.a
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    href={selectedCertificate}
-                                    download
-                                    className="p-3 md:p-4 bg-primary text-primary-foreground rounded-full transition-all shadow-xl backdrop-blur-md flex items-center justify-center"
-                                    title="Download Certificate"
-                                >
-                                    <ExternalLink size={20} />
-                                </motion.a>
-                                <motion.button
-                                    whileHover={{ scale: 1.1, rotate: 90 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    onClick={() => setSelectedCertificate(null)}
-                                    className="p-3 md:p-4 bg-background/50 hover:bg-foreground hover:text-background rounded-full transition-all shadow-xl backdrop-blur-md flex items-center justify-center"
-                                >
-                                    <X size={20} />
-                                </motion.button>
-                            </div>
 
-                            <div className="flex-1 w-full h-full bg-muted/5 relative">
-                                <object
-                                    data={`${selectedCertificate}#toolbar=0&navpanes=0&scrollbar=0`}
-                                    type="application/pdf"
-                                    className="w-full h-full border-0"
-                                >
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center">
-                                        <FileCheck size={64} className="text-secondary mb-6 opacity-20" />
-                                        <h3 className="text-2xl font-black mb-4">View Certificate</h3>
-                                        <p className="text-muted-foreground mb-8 max-w-md">Your browser doesn't support direct PDF viewing. You can download the certificate to view it or open it in a new tab.</p>
-                                        <a
-                                            href={selectedCertificate}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-black uppercase tracking-widest hover:scale-105 transition-transform"
-                                        >
-                                            Open in New Tab
-                                        </a>
-                                    </div>
-                                </object>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </>
     );
 }

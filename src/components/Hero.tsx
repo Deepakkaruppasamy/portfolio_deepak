@@ -83,7 +83,7 @@ export default function Hero() {
     const nameWords = personalInfo.name.split(' ');
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient pb-20 pt-32 md:pt-40">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient pb-12 pt-20 md:pb-20 md:pt-32 lg:pt-40">
             <div className="container-custom relative z-10 w-full">
                 <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-24">
                     <motion.div
@@ -93,7 +93,7 @@ export default function Hero() {
                         className="max-w-4xl flex-1 text-center lg:text-left flex flex-col items-center lg:items-start"
                     >
                         {/* Status Reveal */}
-                        <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest mb-8">
+                        <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 md:mb-8">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -102,13 +102,13 @@ export default function Hero() {
                         </motion.div>
 
                         {/* Location Reveal */}
-                        <motion.div variants={itemVariants} className="flex items-center gap-2 text-muted-foreground mb-6">
+                        <motion.div variants={itemVariants} className="flex items-center gap-2 text-muted-foreground mb-3 md:mb-6">
                             <MapPin size={16} className="text-primary animate-bounce-subtle" />
                             <span className="text-sm font-black tracking-[0.2em] uppercase">{personalInfo.location}</span>
                         </motion.div>
 
                         {/* Cinematic Heading Reveal */}
-                        <motion.h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95] mb-8">
+                        <motion.h1 className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tight leading-[0.95] mb-4 md:mb-8">
                             <div className="overflow-hidden flex flex-wrap justify-center lg:justify-start gap-x-4">
                                 {nameWords.map((word, i) => (
                                     <motion.span
@@ -129,15 +129,15 @@ export default function Hero() {
                                 </motion.span>
                             </div>
                             <motion.div variants={itemVariants} className="mt-2 h-1 bg-gradient-to-r from-primary via-indigo-500 to-transparent w-24 rounded-full mx-auto lg:mx-0" />
-                            <motion.span variants={itemVariants} className="block text-4xl md:text-6xl lg:text-7xl text-muted-foreground/30 dark:text-muted-foreground/10 mt-4 leading-tight">
-                                Full Stack & <span className="text-gradient">Analyst</span>
+                            <motion.span variants={itemVariants} className="block text-2xl md:text-5xl lg:text-7xl text-muted-foreground/30 dark:text-muted-foreground/10 mt-2 md:mt-4 leading-tight">
+                                Full Stack Developer & <span className="text-gradient">Data Analyst</span>
                             </motion.span>
                         </motion.h1>
 
                         {/* Description Stagger */}
                         <motion.p
                             variants={itemVariants}
-                            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 leading-relaxed font-medium mx-auto lg:mx-0"
+                            className="text-base md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mb-6 md:mb-12 leading-relaxed font-medium mx-auto lg:mx-0"
                         >
                             Architecting high-performance digital experiences and
                             intelligent data solutions. Bridging the gap between
@@ -148,14 +148,14 @@ export default function Hero() {
                         {/* Magnetic CTA Buttons */}
                         <motion.div
                             variants={itemVariants}
-                            className="flex flex-col sm:flex-row gap-8 items-center lg:items-start mb-16"
+                            className="flex flex-col sm:flex-row gap-4 md:gap-8 items-center lg:items-start mb-8 md:mb-16"
                         >
                             <Magnetic>
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={scrollToProjects}
-                                    className="px-10 py-5 bg-foreground text-background rounded-full font-black text-lg shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-primary/30 transition-shadow flex items-center gap-3 group relative overflow-hidden"
+                                    className="px-6 py-3 md:px-10 md:py-5 bg-foreground text-background rounded-full font-black text-sm md:text-lg shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-primary/30 transition-shadow flex items-center gap-2 md:gap-3 group relative overflow-hidden"
                                 >
                                     <span className="relative z-10">Launch Projects</span>
                                     <ArrowRight className="h-6 w-6 relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -169,7 +169,7 @@ export default function Hero() {
                                     whileTap={{ scale: 0.95 }}
                                     href="/certificates/resume.pdf"
                                     download
-                                    className="px-10 py-5 bg-background/50 border-2 border-border/60 hover:border-primary text-foreground rounded-full font-black text-lg backdrop-blur-md transition-all flex items-center gap-3 group"
+                                    className="px-6 py-3 md:px-10 md:py-5 bg-background/50 border-2 border-border/60 hover:border-primary text-foreground rounded-full font-black text-sm md:text-lg backdrop-blur-md transition-all flex items-center gap-2 md:gap-3 group"
                                 >
                                     <Download className="h-6 w-6 group-hover:scale-110 transition-transform" />
                                     Resume

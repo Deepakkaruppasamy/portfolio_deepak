@@ -67,11 +67,11 @@ export default function Contact() {
                             <Sparkles className="text-primary animate-pulse" size={24} />
                             <h3 className="text-primary font-black tracking-[0.4em] uppercase text-xs">Collaboration</h3>
                         </div>
-                        <h2 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] mb-12">
+                        <h2 className="text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[0.9] mb-8 md:mb-12">
                             Start the <br />
                             <span className="text-gradient">Dialogue</span>.
                         </h2>
-                        <p className="text-2xl md:text-3xl text-muted-foreground font-medium max-w-xl mb-16 leading-relaxed">
+                        <p className="text-lg md:text-2xl lg:text-3xl text-muted-foreground font-medium max-w-xl mb-8 md:mb-16 leading-relaxed">
                             Seeking high-impact roles in Full Stack and Data Engineering.
                             Let’s architect the next generation of digital products.
                         </p>
@@ -98,7 +98,7 @@ export default function Contact() {
                         transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                         className="lg:w-[600px] shrink-0"
                     >
-                        <div className="glass-card p-12 md:p-16 rounded-[4rem] shadow-[0_0_100px_rgba(var(--primary),0.1)] relative overflow-hidden border-border/40">
+                        <div className="glass-card p-8 md:p-12 lg:p-16 rounded-[2rem] md:rounded-[4rem] shadow-[0_0_100px_rgba(var(--primary),0.1)] relative overflow-hidden border-border/40">
                             {/* Internal Mesh Effect */}
                             <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px] -z-10" />
                             <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-[80px] -z-10" />

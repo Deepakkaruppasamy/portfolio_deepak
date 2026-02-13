@@ -112,12 +112,11 @@ export default function Navbar() {
             style={{
                 height: headerHeight,
                 backgroundColor: headerBg,
-                backdropFilter: `blur(${headerBlur.get()})`, // Note: Framer Motion v10+ handle simple style interpolation, but blur needs care
-                borderBottom: `1px solid ${headerBorder.get()}`
+                borderBottomColor: headerBorder.get()
             }}
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            className="fixed top-0 left-0 right-0 z-50 flex items-center transition-[height,background-color,backdrop-filter]"
+            className="fixed top-0 left-0 right-0 z-50 flex items-center transition-all duration-300 backdrop-blur-xl border-b"
         >
             <div className="container-custom flex items-center justify-between w-full">
                 {/* Logo */}
@@ -203,7 +202,7 @@ export default function Navbar() {
                                         <a
                                             href={link.href}
                                             onClick={(e) => handleNavClick(e, link.href)}
-                                            className={`text-6xl font-black tracking-tighter uppercase transition-colors ${activeSection === link.href ? 'text-primary' : 'text-muted-foreground/40'
+                                            className={`text-4xl md:text-6xl font-black tracking-tighter uppercase transition-colors ${activeSection === link.href ? 'text-primary' : 'text-muted-foreground/40'
                                                 }`}
                                         >
                                             {link.name}

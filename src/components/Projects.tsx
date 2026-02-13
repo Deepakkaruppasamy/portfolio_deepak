@@ -46,20 +46,25 @@ export default function Projects({ githubRepos = [] }: ProjectsProps) {
                         <h3 className="text-primary font-black tracking-[0.4em] uppercase text-xs">Innovation Lab</h3>
                     </div>
                     <div className="flex flex-col items-center gap-10">
-                        <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] max-w-4xl">
+                        <h2 className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter leading-[0.9] max-w-4xl">
                             Building the<br />
                             <span className="text-gradient">Future</span> Web
                         </h2>
-                        <p className="text-muted-foreground text-xl max-w-2xl font-medium leading-relaxed italic border-t-2 md:border-t-0 md:border-l-2 border-primary/20 pt-6 md:pt-0 md:pl-6">
+                        <p className="text-muted-foreground text-base md:text-xl max-w-2xl font-medium leading-relaxed italic border-t-2 md:border-t-0 md:border-l-2 border-primary/20 pt-4 md:pt-0 md:pl-6">
                             "Every line of code is an opportunity to create something extraordinary."
                         </p>
                     </div>
                 </motion.div>
 
-                {/* Asymmetrical Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
+                {/* Featured Projects Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 mb-20">
                     {featuredProjects.map((project, index) => (
-                        <FeaturedProjectCard key={project.id} project={project} index={index} />
+                        <FeaturedProjectCard
+                            key={project.id}
+                            project={project}
+                            index={index}
+                            isLarge={index === 0}
+                        />
                     ))}
                 </div>
 
@@ -106,8 +111,7 @@ export default function Projects({ githubRepos = [] }: ProjectsProps) {
     );
 }
 
-function FeaturedProjectCard({ project, index }: { project: Project; index: number }) {
-    const isLarge = index === 0;
+function FeaturedProjectCard({ project, index, isLarge }: { project: Project; index: number; isLarge: boolean }) {
     const cardRef = useRef<HTMLDivElement>(null);
 
     const x = useMotionValue(0);
@@ -145,7 +149,7 @@ function FeaturedProjectCard({ project, index }: { project: Project; index: numb
             viewport={{ once: true, margin: "-50px" }}
             style={{ perspective: 1000, rotateX, rotateY }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className={`group relative rounded-[4rem] overflow-hidden glass-card min-h-[550px] lg:min-h-[650px] p-10 md:p-16 flex flex-col justify-end shadow-2xl transition-shadow cursor-pointer hover:shadow-primary/10 ${isLarge ? 'lg:col-span-2' : ''
+            className={`group relative rounded-[2rem] md:rounded-[4rem] overflow-hidden glass-card min-h-[500px] md:min-h-[550px] lg:min-h-[650px] p-6 md:p-10 lg:p-16 flex flex-col justify-end shadow-2xl transition-shadow cursor-pointer hover:shadow-primary/10 ${isLarge ? 'lg:col-span-2' : ''
                 }`}
         >
             {/* Background Graphic Component */}
@@ -169,11 +173,11 @@ function FeaturedProjectCard({ project, index }: { project: Project; index: numb
                     <Sparkles className="text-primary/40 group-hover:text-primary transition-colors animate-pulse" size={16} />
                 </div>
 
-                <h3 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] transition-all transform group-hover:scale-[1.02] origin-left">
+                <h3 className="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[0.95] transition-all transform group-hover:scale-[1.02] origin-left break-words">
                     {project.name}
                 </h3>
 
-                <p className="text-muted-foreground text-xl md:text-2xl font-medium leading-relaxed line-clamp-2 md:line-clamp-none">
+                <p className="text-muted-foreground text-base md:text-xl lg:text-2xl font-medium leading-relaxed">
                     {project.description}
                 </p>
 
